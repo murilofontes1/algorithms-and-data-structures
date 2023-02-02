@@ -1,44 +1,44 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void questionario_produto(int *sexo, int *opiniao){
-    int resposta1;
+void questionario_produto(char *sexo, int *opiniao){
+    char resposta1;
     int resposta2;
 
     for(int i = 0; i < 5; i++){
-        printf("Digite o seu sexo (1 para M, 2 para F):\n");
-        scanf("%d", &resposta1);
+        printf("Digite o seu sexo (M ou F):\n");
+        scanf("%c", &resposta1);
         switch(resposta1){
-            case 1:
+            case 'M':
                 printf("Digite sua opinião sobre o produto (1 para gostei, 2 para não gostei):\n");
                 scanf("%d", &resposta2);
                 switch(resposta2){
                     case 1:
-                        sexo[i] = 1; // Erro: assignment makes integer from pointer without a cast
+                        sexo[i] = 'M'; // Erro: assignment makes integer from pointer without a cast
                         opiniao[i] = 1;
                         printf("Obrigado por participar da pesquisa\n");
                     break;
 
                     case 2:
-                        sexo[i] = 1;
+                        sexo[i] = 'M';
                         opiniao[i] = 2; // Erro: assignment makes integer from pointer without a cast
                         printf("Obrigado por participar da pesquisa\n");
                     break;
                 }
             break;
 
-            case 2:
+            case 'F':
                 printf("Digite sua opinião sobre o produto (1 para gostei, 2 para não gostei):\n");
                 scanf("%d", resposta2);
                 switch(resposta2){
                     case 1:
-                        sexo[i] = 2; // Erro: assignment makes integer from pointer without a cast
+                        sexo[i] = 'F'; // Erro: assignment makes integer from pointer without a cast
                         opiniao[i] = 1;
                         printf("Obrigado por participar da pesquisa\n");
                     break;
 
                     case 2:
-                        sexo[i] = 2; // Erro: assignment makes integer from pointer without a cast
+                        sexo[i] = 'F'; // Erro: assignment makes integer from pointer without a cast
                         opiniao[i] = 2;
                         printf("Obrigado por participar da pesquisa\n");
                     break;
@@ -48,17 +48,17 @@ void questionario_produto(int *sexo, int *opiniao){
     }
 }
 
-void verifica_porcentagem(int *sexo, int *opiniao){
+void verifica_porcentagem(char *sexo, int *opiniao){
     int aprovacoes_femininas = 0;
     int reprovacoes_masculinas = 0;
     for(int i = 0; i < 5; i++){
-        if ((sexo[i] == 2) && (opiniao[i] == 1)){ // Erro: comparison between pointer and integer
+        if ((sexo[i] == 'F') && (opiniao[i] == 1)){ // Erro: comparison between pointer and integer
             aprovacoes_femininas++;
         }
     }
 
     for(int i = 0; i < 5; i++){
-        if ((sexo[i] == 1) && (opiniao[i] == 2)){ // Erro: comparison between pointer and integer
+        if ((sexo[i] == 'M') && (opiniao[i] == 2)){ // Erro: comparison between pointer and integer
             reprovacoes_masculinas++;
         }
     }
@@ -67,7 +67,7 @@ void verifica_porcentagem(int *sexo, int *opiniao){
 }
 
 int main(void){
-    int *sexo = (int*) malloc (5*sizeof(int));
+    char *sexo = (char*) malloc (5*sizeof(char));
     if(sexo == NULL){
         printf("Memória insuficiente.");
         return 1;
