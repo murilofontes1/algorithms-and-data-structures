@@ -6,14 +6,14 @@ int main(void){
 	int colunas = 3;
     int ** matriz = (int**) malloc(linhas*sizeof(int));
     if(linhas == NULL){
-    	printf("Memória insuficiente.\n");
+    	printf("MemÃ³ria insuficiente.\n");
     	exit(1);
 	}
 	int linha;
 	for(linha = 0; linha < linhas; linha++){
 		matriz[linha] = (int*) malloc(colunas*sizeof(int));
 		if(colunas == NULL){
-    		printf("Memória insuficiente.\n");
+    		printf("MemÃ³ria insuficiente.\n");
     		exit(1);
 		}
 	}
