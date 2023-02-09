@@ -70,7 +70,7 @@ int main(void){
 
     Funcionario * funcionario = (Funcionario*) malloc(qtdFuncionarios*sizeof(Funcionario));
     if (funcionario == NULL){
-        printf("Memória insuficiente.");
+        printf("MemÃ³ria insuficiente.");
         exit(1);
     }
 
