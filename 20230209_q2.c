@@ -68,7 +68,7 @@ int main(void){
 
     Pessoa * pessoa = (Pessoa*) malloc(qtdPessoas*sizeof(Pessoa));
     if (pessoa == NULL){
-        printf("Memória insuficiente.");
+        printf("MemÃ³ria insuficiente.");
         exit(1);
     }
 
