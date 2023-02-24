@@ -90,7 +90,7 @@ int main(void){
                 controle = validar_turma(turmas);
                 if(controle == 1){break;}
                 printf("Listando turmas...\n");
-                imprime_turmas(id, turma[id]->vagas);
+                imprime_turmas(id, turmas[id]->vagas);
                 // falta fazer
             break;
 
