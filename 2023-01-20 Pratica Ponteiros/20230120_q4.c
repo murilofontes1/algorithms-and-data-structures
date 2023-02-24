@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-void calcula_hexagono(float l, float *area, float *perimetro){
+void calcula_hexagono(float l, float *area, float *perimetro){ // funcao que recebe qtd de lados e calcula area e perimetro, armazenando nos ponteiros
     *area = (3*(pow(l, 2))*sqrt(3))/2;
     *perimetro = 6*l;
     printf("Area do hexagono: %.1f | Perimetro do hexagono: %.1f", *area, *perimetro);
