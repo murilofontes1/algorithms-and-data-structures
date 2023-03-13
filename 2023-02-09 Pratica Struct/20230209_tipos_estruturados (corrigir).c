@@ -44,8 +44,8 @@ Turma* cria_turma(char id){
 
 Turma** imprime_turmas(Turma** turmas, int n){
     int i;
-    for(i = 0; i < MAX_TURMAS; i++){
-        printf("Turma %c - %d vagas disnponiveis\n", turmas[n]->id, turmas[n]->vagas);
+    for(i = 0; i < n; i++){
+        printf("Turma %c - %d vagas disnponiveis\n", turmas[i]->id, turmas[i]->vagas);
     }
 }
 
@@ -67,7 +67,7 @@ void matricula_aluno(Turma* turma, int mat, char* nome){
 }
 
 int main(void){
-    int op, i, index = 0, controle, mat;
+    int op, i, n, index = 0, controle, mat;
     char id, nome[81];
     printf("Bem-vindo ao Programa de Gerenciamento de Turmas! Este programa gerencia as turmas ofertadas, fornecendo as uncionalidades de matricula, lancamento de notas e listagem de alunos.\nAutor: Murilo Fontes\tVersao: 1.0\n");
     do{
@@ -87,11 +87,10 @@ int main(void){
             break;
 
             case 2:
+                printf("Listando turmas...\n");
                 controle = validar_turma(turmas);
                 if(controle == 1){break;}
-                printf("Listando turmas...\n");
-                imprime_turmas(id, turmas[id]->vagas);
-                // falta fazer
+                imprime_turmas(turmas, index);
             break;
 
             case 3:
@@ -111,7 +110,7 @@ int main(void){
                         matricula_aluno(turmas[i], mat, nome);
                         break;
                     } else{
-                        printf("Turma inexistente.\n");
+                        printf("Turma inexistente com esse ID.\n");
                         break;
                     }
                 }
@@ -142,5 +141,13 @@ int main(void){
     }while(op != 7);
 
     printf("Obrigado por usar este programa!");
+    
+    for (i = 0; i < MAX_TURMAS; i++){
+        for (n = 0; n < MAX_ALUNOS; n++){
+            free(turmas[i]->alunos[n]);
+        }
+        free(turmas[i]);
+    }
+    free(turmas);
     return 0;
 }
