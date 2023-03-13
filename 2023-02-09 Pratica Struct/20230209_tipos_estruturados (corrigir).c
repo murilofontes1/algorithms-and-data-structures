@@ -44,8 +44,13 @@ Turma* cria_turma(char id){
 
 Turma** imprime_turmas(Turma** turmas, int n){
     int i;
+<<<<<<< HEAD
     for(i = 0; i < n; i++){
         printf("Turma %c - %d vagas disnponiveis\n", turmas[i]->id, turmas[i]->vagas);
+=======
+    for(i = 0; i < MAX_TURMAS; i++){
+        printf("Turma %c - %d vagas disnponiveis\n", turmas[n]->id, turmas[n]->vagas);
+>>>>>>> 6dea8dca210d70103b297250a2144d259c6d307b
     }
 }
 
@@ -67,7 +72,11 @@ void matricula_aluno(Turma* turma, int mat, char* nome){
 }
 
 int main(void){
+<<<<<<< HEAD
     int op, i, n, index = 0, controle, mat;
+=======
+    int op, i, index = 0, controle, mat;
+>>>>>>> 6dea8dca210d70103b297250a2144d259c6d307b
     char id, nome[81];
     printf("Bem-vindo ao Programa de Gerenciamento de Turmas! Este programa gerencia as turmas ofertadas, fornecendo as uncionalidades de matricula, lancamento de notas e listagem de alunos.\nAutor: Murilo Fontes\tVersao: 1.0\n");
     do{
@@ -87,10 +96,18 @@ int main(void){
             break;
 
             case 2:
+<<<<<<< HEAD
                 printf("Listando turmas...\n");
                 controle = validar_turma(turmas);
                 if(controle == 1){break;}
                 imprime_turmas(turmas, index);
+=======
+                controle = validar_turma(turmas);
+                if(controle == 1){break;}
+                printf("Listando turmas...\n");
+                imprime_turmas(id, turmas[id]->vagas);
+                // falta fazer
+>>>>>>> 6dea8dca210d70103b297250a2144d259c6d307b
             break;
 
             case 3:
@@ -110,7 +127,11 @@ int main(void){
                         matricula_aluno(turmas[i], mat, nome);
                         break;
                     } else{
+<<<<<<< HEAD
                         printf("Turma inexistente com esse ID.\n");
+=======
+                        printf("Turma inexistente.\n");
+>>>>>>> 6dea8dca210d70103b297250a2144d259c6d307b
                         break;
                     }
                 }
@@ -141,6 +162,7 @@ int main(void){
     }while(op != 7);
 
     printf("Obrigado por usar este programa!");
+<<<<<<< HEAD
     
     for (i = 0; i < MAX_TURMAS; i++){
         for (n = 0; n < MAX_ALUNOS; n++){
@@ -151,3 +173,7 @@ int main(void){
     free(turmas);
     return 0;
 }
+=======
+    return 0;
+}
+>>>>>>> 6dea8dca210d70103b297250a2144d259c6d307b

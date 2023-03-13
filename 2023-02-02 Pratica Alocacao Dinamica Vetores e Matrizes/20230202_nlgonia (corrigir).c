@@ -84,4 +84,8 @@ int main(void)
         free(matriz);
     }
     return 0;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 6dea8dca210d70103b297250a2144d259c6d307b
